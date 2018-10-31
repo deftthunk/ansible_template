@@ -1,0 +1,9 @@
+---
+- hosts: all
+  sudo: true
+  vars:
+    packages: ['nmap', 'p7zip', 'tshark']
+  tasks:
+    - name: Install packages
+      apt: name={{ item }} state=latest
+      with_items: packages
